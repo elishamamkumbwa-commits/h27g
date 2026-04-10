@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Elena Rivera | Creative Website Designer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+      min-height: 100vh;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #6366f1;
+    }
+
+    /* Container for page content */
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+      background: linear-gradient(135deg, #fff, #fef9e6);
+      border-radius: 2rem;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: #e0e7ff;
+      color: #4f46e5;
+      padding: 0.25rem 0.75rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #1e293b, #4f46e5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: #475569;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-outline {
+      border: 2px solid #6366f1;
+      color: #6366f1;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #6366f1;
+      color: white;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 2rem;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section Styles */
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #1e293b, #6366f1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Portfolio Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .portfolio-card {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-info {
+      padding: 1.5rem;
+    }
+
+    .portfolio-info h3 {
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+    }
+
+    .portfolio-info p {
+      color: #64748b;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-link {
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-bottom: 4rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f8fafc;
+      border-radius: 1rem;
+    }
+
+    .skill-item i {
+      font-size: 2.5rem;
+      color: #6366f1;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item h4 {
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+    }
+
+    .skill-bar {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      border-radius: 4px;
+    }
+
+    /* About Page Specific */
+    .about-content {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: center;
+      background: white;
+      border-radius: 2rem;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    .about-text h2 {
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .about-text p {
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .about-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      border-radius: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline {
+      margin-top: 2rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 1rem;
+    }
+
+    .timeline-year {
+      font-weight: bold;
+      color: #6366f1;
+      min-width: 80px;
+    }
+
+    /* Contact Page */
+    .contact-container {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 2rem;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 1rem;
+    }
+
+    .contact-detail i {
+      font-size: 1.5rem;
+      color: #6366f1;
+    }
+
+    .contact-form {
+      flex: 2;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1e293b;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    /* Active page indicator */
+    .nav-links a.active {
+      color: #6366f1;
+      font-weight: 600;
+    }
+
+    /* Hide all pages by default, show only active */
+    .page {
+      display: none;
+    }
+
+    .page.active-page {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .navbar {
+        padding: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">✨ Elena Rivera</div>
+    <div class="nav-links">
+      <a href="#" data-page="home" class="active">Home</a>
+      <a href="#" data-page="about">About</a>
+      <a href="#" data-page="portfolio">Portfolio</a>
+      <a href="#" data-page="contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-container">
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page active-page">
+      <div class="hero">
+        <div class="hero-content">
+          <span class="hero-badge">✨ Website Designer</span>
+          <h1>Creating Beautiful,<br>Functional Websites</h1>
+          <p>I'm Elena Rivera, a passionate website designer specializing in modern, responsive, and user-centered web experiences. With 6+ years of experience, I help brands bring their digital vision to life.</p>
+          <div class="btn-group">
+            <a href="#" data-page="portfolio" class="btn btn-primary">View My Work</a>
+            <a href="#" data-page="contact" class="btn btn-outline">Let's Connect</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=400&fit=crop" alt="Designer workspace">
+        </div>
+      </div>
+
+      <div class="skills-section">
+        <h2 class="section-title">My Expertise</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fab fa-figma"></i>
+            <h4>UI/UX Design</h4>
+            <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-html5"></i>
+            <h4>HTML5/CSS3</h4>
+            <div class="skill-bar"><div class="skill-progress" style="width: 98%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-js"></i>
+            <h4>JavaScript</h4>
+            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-react"></i>
+            <h4>React</h4>
+            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="page">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Elena Rivera</h2>
+          <p>I'm a creative website designer based in San Francisco, California. With a background in graphic design and front-end development, I bridge the gap between aesthetics and functionality. My mission is to craft digital experiences that not only look stunning but also deliver exceptional user experiences.</p>
+          <p>Over the past 6 years, I've collaborated with startups, agencies, and established brands to create websites that tell compelling stories. I believe that great design is invisible — it guides users naturally and makes complex tasks feel simple.</p>
+          <p>When I'm not designing, you can find me exploring nature, contributing to open-source projects, or mentoring aspiring designers.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=500&fit=crop" alt="Elena Rivera">
+        </div>
+      </div>
+      
+      <div class="skills-section">
+        <h2 class="section-title">Journey & Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2022 - Present</div>
+            <div><strong>Lead Web Designer</strong> at Creative Studio Co.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2019 - 2022</div>
+            <div><strong>Frontend Developer</strong> at Digital Wave Agency</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2017 - 2019</div>
+            <div><strong>Freelance Designer</strong> - Worked with 50+ clients worldwide</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016</div>
+            <div><strong>BFA in Web Design</strong> - California College of the Arts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PORTFOLIO PAGE -->
+    <div id="portfolio-page" class="page">
+      <h2 class="section-title">Recent Projects</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="EcoStore Project">
+          <div class="portfolio-info">
+            <h3>EcoStore</h3>
+            <p>E-commerce platform for sustainable products with seamless checkout experience.</p>
+            <a href="#" class="portfolio-link" data-page="project1">View Project →</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Finance Dashboard">
+          <div class="portfolio-info">
+            <h3>FinanceFlow</h3>
+            <p>Interactive dashboard for personal finance tracking with real-time analytics.</p>
+            <a href="#" class="portfolio-link" data-page="project2">View Project →</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=250&fit=crop" alt="Restaurant Website">
+          <div class="portfolio-info">
+            <h3>Soul Kitchen</h3>
+            <p>Modern restaurant website with online reservations and menu showcase.</p>
+            <a href="#" class="portfolio-link" data-page="project3">View Project →</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Portfolio Design">
+          <div class="portfolio-info">
+            <h3>Creative Portfolio</h3>
+            <p>Minimalist portfolio template for artists and creative professionals.</p>
+            <a href="#" class="portfolio-link" data-page="project4">View Project →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="page">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Let's Work Together</h3>
+          <p>Have a project in mind? I'd love to hear about it. Reach out and let's create something amazing.</p>
+          <div class="contact-detail">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong><br>
+              elena@riveradesign.com
+            </div>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-phone"></i>
+            <div>
+              <strong>Phone</strong><br>
+              +1 (415) 555-0123
+            </div>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Location</strong><br>
+              San Francisco, CA
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Subject">
+            </div>
+            <div class="form-group">
+              <textarea rows="5" placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+          <p id="formMessage" style="margin-top: 1rem; color: #10b981; display: none;">✓ Message sent! I'll get back to you soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2024 Elena Rivera — Website Designer & Developer. Crafted with 💜</p>
+  </footer>
+
+  <script>
+    // Navigation System - Click links to go to another page about the website designer
+    // This creates a multi-page experience within a single HTML file
+    
+    const pages = {
+      home: document.getElementById('home-page'),
+      about: document.getElementById('about-page'),
+      portfolio: document.getElementById('portfolio-page'),
+      contact: document.getElementById('contact-page'),
+      // Project detail pages (sub-pages about designer's work)
+      project1: null,
+      project2: null,
+      project3: null,
+      project4: null
+    };
+    
+    // Create project detail pages dynamically
+    function createProjectPage(projectId, title, description, imageUrl, fullDetails) {
+      const pageDiv = document.createElement('div');
+      pageDiv.id = `${projectId}-page`;
+      pageDiv.className = 'page';
+      pageDiv.innerHTML = `
+        <div class="hero" style="padding: 2rem;">
+          <div class="hero-content">
+            <span class="hero-badge">✨ Featured Project</span>
+            <h1>${title}</h1>
+            <p>${description}</p>
+            <div style="margin: 2rem 0;">
+              <h3>Project Details</h3>
+              <p style="margin-top: 0.5rem;">${fullDetails}</p>
+            </div>
+            <div class="btn-group">
+              <a href="#" data-page="portfolio" class="btn btn-outline">← Back to Portfolio</a>
+              <a href="#" data-page="contact" class="btn btn-primary">Work With Me</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="${imageUrl}" alt="${title}" style="max-width: 100%; border-radius: 1rem;">
+          </div>
+        </div>
+      `;
+      document.querySelector('.page-container').appendChild(pageDiv);
+      pages[projectId] = pageDiv;
+      return pageDiv;
+    }
+    
+    // Create project detail pages
+    createProjectPage('project1', 'EcoStore E-commerce', 'Sustainable product marketplace with eco-friendly packaging integration.', 
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=400&fit=crop',
+      'EcoStore is a full-featured e-commerce platform designed for sustainable brands. The project included custom product filtering, a seamless checkout process, and integration with eco-friendly shipping APIs. The design focuses on earthy tones and intuitive navigation, resulting in a 35% increase in conversion rate for the client.');
+    
+    createProjectPage('project2', 'FinanceFlow Dashboard', 'Interactive personal finance tracker with real-time analytics.',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=400&fit=crop',
+      'FinanceFlow helps users track expenses, set budgets, and visualize spending patterns. I designed the UI/UX and built interactive charts using D3.js. The dashboard syncs with bank APIs and provides personalized financial insights. The project received the "Best Fintech Design" award in 2023.');
+    
+    createProjectPage('project3', 'Soul Kitchen Restaurant', 'Modern restaurant website with online reservations and dynamic menu.',
+      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&h=400&fit=crop',
+      'Soul Kitchen is a farm-to-table restaurant that needed a digital presence reflecting its warm, organic identity. I created a responsive website with an interactive menu, table reservation system, and photo gallery. The site increased online reservations by 60% within the first three months.');
+    
+    createProjectPage('project4', 'Creative Portfolio Template', 'Minimalist portfolio template for artists and creative professionals.',
+      'https://images.unsplash.com/photo-1517842645767-c639042777db?w=500&h=400&fit=crop',
+      'This portfolio template was designed for maximum flexibility and visual impact. It features multiple layout options, smooth animations, and is fully responsive. The template has been downloaded over 2,000 times and is used by designers, photographers, and illustrators worldwide.');
+    
+    function showPage(pageId) {
+      // Hide all pages
+      Object.values(pages).forEach(page => {
+        if (page) page.classList.remove('active-page');
+      });
+      // Show selected page
+      if (pages[pageId]) {
+        pages[pageId].classList.add('active-page');
+      }
+      // Update active nav link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('active');
+        }
+      });
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+    
+    // Add click handlers to all navigation links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pageId = link.getAttribute('data-page');
+        showPage(pageId);
+      });
+    });
+    
+    // Also handle any dynamic links that might be added (portfolio links, project back links)
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-page]');
+      if (target && target.getAttribute('data-page')) {
+        e.preventDefault();
+        const pageId = target.getAttribute('data-page');
+        showPage(pageId);
+      }
+    });
+    
+    // Contact form handler
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        formMessage.style.display = 'block';
+        contactForm.reset();
+        setTimeout(() => {
+          formMessage.style.display = 'none';
+        }, 3000);
+      });
+    }
+    
+    // Initial setup - ensure home page is active
+    showPage('home');
+    
+    // Add some animation for page transitions
+    const style = document.createElement('style');
+    style.textContent = `
+      .page {
+        animation: fadeIn 0.3s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
